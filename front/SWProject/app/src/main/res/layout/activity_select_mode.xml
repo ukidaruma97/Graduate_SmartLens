@@ -6,28 +6,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:orientation="vertical">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="0.02"
-        android:background="@color/black"
-        android:orientation="vertical">
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:src="@drawable/ic_launcher_background"
-        />
+        android:layout_weight="1.2"
+        android:gravity="center"
+        android:text="객체선택"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/black">
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,27 +25,30 @@
         android:orientation="vertical">
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="8">
+
+        <LinearLayout
+            android:id="@+id/test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="0.02"
+        android:background="@color/black"
         android:orientation="vertical">
     </LinearLayout>
 
-    <Button
-        android:id="@+id/photoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:text="편집"
-        android:textSize="20dp"
-        android:layout_weight="0.4"/>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:orientation="vertical">
     </LinearLayout>
 
