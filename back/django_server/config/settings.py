@@ -77,7 +77,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE" : 'django.db.backends.mysql',
-        "NAME" : "input_img",
+        "NAME" : "graduate_db",
         "USER" : "root",
         "PASSWORD" : "1111",
         "HOST" : "localhost",
