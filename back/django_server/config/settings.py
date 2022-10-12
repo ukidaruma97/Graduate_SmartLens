@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from config.my_settings import DATABASE, SECRET_KEY
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-i3=w5(3$td0sokoues7p-7#!%x@1$j^-$n-d08(-09=!mk%50w"
+# SECRET_KEY = "django-insecure-i3=w5(3$td0sokoues7p-7#!%x@1$j^-$n-d08(-09=!mk%50w"
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,16 +78,17 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE" : 'django.db.backends.mysql',
-        "NAME" : "graduate_db",
-        "USER" : "root",
-        "PASSWORD" : "1111",
-        "HOST" : "localhost",
-        "PORT" : "3306",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE" : 'django.db.backends.mysql',
+#         "NAME" : "graduate_db",
+#         "USER" : "root",
+#         "PASSWORD" : "1111",
+#         "HOST" : "localhost",
+#         "PORT" : "3306",
+#     }
+# }
+DATABASE = DATABASE
 
 
 # Password validation
