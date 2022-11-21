@@ -36,11 +36,8 @@ public class ObjectInformation extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             view = layoutInflater.inflate(R.layout.activity_custom_select_view, null, false);
             //이름
-            TextView nameText = view.findViewById(R.id.item_name);
-            nameText.setText("Test" + i);
-            //번호
-            TextView phoneText = view.findViewById(R.id.item_phonenum);
-            container.addView(view);
+            ImageView imageView = findViewById(R.id.objectImage);
+            //imageView.setImageBitmap(image);
         }
     }
 }
