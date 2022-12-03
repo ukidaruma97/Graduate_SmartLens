@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MyApi mMyAPI;
     // ngrok홈페이지 URL
-    private final String BASE_URL = "https://d461-175-119-83-193.jp.ngrok.io";
+    private final String BASE_URL = "https://b3e0-175-119-83-193.jp.ngrok.io";
     // 이미지 저장 파일
     private File imageSelectFile;
 

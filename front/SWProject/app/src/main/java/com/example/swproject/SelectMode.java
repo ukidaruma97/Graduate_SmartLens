@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,9 @@ public class SelectMode extends AppCompatActivity {
     ImageView imageView;
     Bitmap bitmap;
 
+    String selectUrl;
+    int count = 0;
+
     @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class SelectMode extends AppCompatActivity {
 
         // EditActivity에서 intent로 보낸 ArrayList 받기
         ArrayList<String> imageList = getIntent().getStringArrayListExtra("imageList");
+        ArrayList<String> urlList = getIntent().getStringArrayListExtra("urlList");
 
         // 동적으로 레이아웃 생성
         container = findViewById(R.id.test1);
@@ -64,11 +69,14 @@ public class SelectMode extends AppCompatActivity {
             img.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             byte[] byteArray = stream.toByteArray();
 
+            selectUrl = urlList.get(count++);
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(SelectMode.this, ObjectInformation.class);
-                    intent.putExtra("image", byteArray);
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Uri uri = Uri.parse(selectUrl);
+                    intent.setData(uri);
                     startActivity(intent);
                 }
             });

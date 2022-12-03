@@ -26,8 +26,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class EditActivity extends AppCompatActivity {
 
     private MyApi mMyAPI;
-    private final String BASE_URL = "https://d461-175-119-83-193.jp.ngrok.io";
+    private final String BASE_URL = "https://b3e0-175-119-83-193.jp.ngrok.io";
     ArrayList<String> imageList;
+    ArrayList<String> urlList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
 
         imageList = new ArrayList<>();
+        urlList = new ArrayList<>();
 
         GetImageObjects();
 
@@ -52,6 +54,7 @@ public class EditActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(EditActivity.this, SelectMode.class);
                 intent.putStringArrayListExtra("imageList", imageList);
+                intent.putStringArrayListExtra("urlList", urlList);
                 startActivity(intent);
             }
         });
@@ -81,6 +84,8 @@ public class EditActivity extends AppCompatActivity {
                     List<PostItem> mList = response.body();
                     for( PostItem item : mList){
                         imageList.add("https://" + item.getImage().substring(7));
+                        Log.d("dsds", item.getUrl());
+                        urlList.add(item.getUrl());
                     }
                 }else {
                     Log.d(TAG,"Status Code : " + response.code());
