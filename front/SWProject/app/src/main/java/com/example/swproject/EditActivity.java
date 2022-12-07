@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class EditActivity extends AppCompatActivity {
 
     private MyApi mMyAPI;
-    private final String BASE_URL = "https://b3e0-175-119-83-193.jp.ngrok.io";
+    private final String BASE_URL = "https://b6d9-175-119-83-193.jp.ngrok.io";
     ArrayList<String> imageList;
     ArrayList<String> urlList;
 
@@ -44,8 +45,12 @@ public class EditActivity extends AppCompatActivity {
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         Bitmap image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
+        Matrix matrix = new Matrix();
+        matrix.postRotate(-90);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(image,0,0, image.getWidth(), image.getHeight(), matrix, false);
+
         ImageView ivImage = findViewById(R.id.img);
-        ivImage.setImageBitmap(image);
+        ivImage.setImageBitmap(rotatedBitmap);
 
         // 편집버튼 기능
         Button editBtn = findViewById(R.id.editBtn);

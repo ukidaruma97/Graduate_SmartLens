@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MyApi mMyAPI;
     // ngrok홈페이지 URL
-    private final String BASE_URL = "https://b3e0-175-119-83-193.jp.ngrok.io";
+    private final String BASE_URL = "https://b6d9-175-119-83-193.jp.ngrok.io";
     // 이미지 저장 파일
     private File imageSelectFile;
 
@@ -109,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
                         in.close();
 
                         float scale = (float) (1024/(float)img.getWidth());
-                        int image_w = (int) (img.getWidth() * scale);
-                        int image_h = (int) (img.getHeight() * scale);
-                        img = Bitmap.createScaledBitmap(img, image_w, image_h, true);
+                        //int image_w = (int) (img.getWidth() * scale);
+                        //int image_h = (int) (img.getHeight() * scale);
+                        img = Bitmap.createScaledBitmap(img, 700, 700, true);
 
                         ByteArrayOutputStream stream = new ByteArrayOutputStream();
                         img.compress(Bitmap.CompressFormat.JPEG, 100, stream);
